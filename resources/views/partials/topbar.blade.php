@@ -3,7 +3,7 @@
     class="btn btn-icon btn-secondary shadow-none border-0 hover:bg-bg rounded-[10px]">
     <iconify-icon icon="solar:hamburger-menu-outline" width="20" height="20"></iconify-icon>
   </button>
-  <div class="flex items-center gap-1.5 text-[13.5px] text-muted md:flex">
+  <div class="hidden items-center gap-1.5 text-[13.5px] text-muted md:flex">
     <a class="text-text no-underline font-medium hover:text-brand" href="{{ url('dashboard') }}">Beranda</a>
     <iconify-icon icon="solar:alt-arrow-right-linear" width="14" height="14" class="text-muted-light mt-0.5"></iconify-icon>
     <span class="text-text font-bold tracking-tight">@yield('page_title', 'Dasbor')</span>
