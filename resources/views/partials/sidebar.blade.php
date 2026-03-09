@@ -83,10 +83,10 @@
     <div class="p-[14px_18px] border-t border-border overflow-hidden mt-auto">
         <div class="flex items-center gap-2.5">
             <div
-                class="w-[34px] h-[34px] bg-brand-light text-brand text-[12px] font-bold shrink-0 flex items-center justify-center rounded-full overflow-hidden">
+                class="w-[34px] h-[34px] bg-brand-light text-brand text-[12px] font-bold shrink-0 flex items-center justify-center rounded-[10px] overflow-hidden">
                 @if(auth()->user()->foto_profile)
                     <img src="{{ asset('storage/' . auth()->user()->foto_profile) }}" alt="Profile"
-                        class="w-full h-full object-cover">
+                        class="w-full h-full object-cover  ">
                 @else
                     {{ substr(auth()->user()->name, 0, 1) }}{{ substr(strrchr(auth()->user()->name, ' '), 1, 1) ?: '' }}
                 @endif
@@ -95,10 +95,6 @@
                 <div class="text-[13px] font-bold text-text truncate">{{ auth()->user()->name }}</div>
                 <div class="text-[11px] text-muted-light truncate">{{ auth()->user()->email }}</div>
             </div>
-            <a href="{{ url('settings') }}" class="btn btn-icon btn-secondary p-1 border-0 shadow-none hover:bg-bg"
-                :class="collapsed && 'hidden'" title="Pengaturan">
-                <iconify-icon icon="solar:settings-outline" width="18" height="18"></iconify-icon>
-            </a>
         </div>
     </div>
 </aside>

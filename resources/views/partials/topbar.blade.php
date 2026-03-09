@@ -57,7 +57,7 @@
     <!-- User Profile -->
     <div x-data="{ open: false }" class="relative">
       <div @click="open = !open" class="flex items-center gap-2 p-1 md:pr-2.5 rounded-xl cursor-pointer transition-all hover:bg-bg">
-        <div class="w-[32px] h-[32px] bg-brand-light text-brand text-[11px] font-bold flex items-center justify-center rounded-full overflow-hidden border border-brand-light">
+        <div class="w-[32px] h-[32px] bg-brand-light text-brand text-[11px] font-bold flex items-center justify-center rounded-[10px] overflow-hidden border border-brand-light">
           @if(auth()->user()->foto_profile)
             <img src="{{ asset('storage/' . auth()->user()->foto_profile) }}" alt="Profile" class="w-full h-full object-cover">
           @else

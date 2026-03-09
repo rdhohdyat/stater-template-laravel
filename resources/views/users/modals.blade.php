@@ -209,7 +209,7 @@
                         <div class="relative">
                             <iconify-icon icon="solar:lock-password-linear" width="18" height="18"
                                 class="i-left text-muted-light"></iconify-icon>
-                            <input type="password" name="password" class="form-input pl-10!" required
+                            <input type="password" name="password" class="form-input-danger pl-10!" required
                                 placeholder="Masukkan kata sandi Anda..." />
                         </div>
                     </div>

@@ -133,6 +133,31 @@
   &:disabled { opacity: 0.5; cursor: not-allowed; }
 }
 
+@utility form-input-danger {
+  width: 100%;
+  background-color: var(--color-surface);
+  border: 1px solid var(--color-border); 
+  border-radius: 10px;
+  color: var(--color-text);
+  font-size: 13px;
+  padding: 8px 12px;
+  outline: none;
+  transition: all 0.2s;
+
+  &:focus {
+    border-color: var(--color-danger-dark, #e11d48);
+    background-color: var(--color-surface);
+    box-shadow: 0 0 0 4px var(--color-danger-light, rgba(251, 113, 133, 0.2));
+  }
+
+  &::placeholder { color: var(--color-muted-light); }
+
+  &:disabled { 
+    opacity: 0.5; 
+    cursor: not-allowed; 
+  }
+}
+
 @utility i-left {
   position: absolute;
   left: 12px;

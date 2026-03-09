@@ -8,7 +8,7 @@
         <p class="text-muted text-[14px] mt-1">Kelola akun dan preferensi Anda.</p>
     </div>
 
-     @if(session('success'))
+    @if(session('success'))
         <div
             class="mb-5 p-[12px_16px] bg-emerald-50 border border-emerald-100 rounded-xl text-emerald-700 text-[14px] flex items-center gap-2.5">
             <iconify-icon icon="solar:check-circle-bold-duotone" width="20" height="20" class="text-emerald-500"></iconify-icon>
@@ -26,7 +26,7 @@
 
     <div class="animate-fade-up grid grid-cols-1 md:grid-cols-2 gap-4">
         <!-- Kolom Kiri: Form -->
-        <div class="card p-[22px]">
+        <div class="card p-[22px] h-fit">
             <div class="text-[15px] font-bold mb-1">Informasi Profil</div>
             <p class="text-[13px] text-muted mb-5">Perbarui detail pribadi Anda.</p>
 
@@ -120,23 +120,23 @@
 
             <!-- Security Card -->
             <div class="card p-[22px]" x-data="{ 
-                    password: '',
-                    get strength() {
-                        if (!this.password) return 0;
-                        let s = 0;
-                        if (this.password.length > 7) s++;
-                        if (/[A-Z]/.test(this.password)) s++;
-                        if (/[0-9]/.test(this.password)) s++;
-                        if (/[^A-Za-z0-9]/.test(this.password)) s++;
-                        return s;
-                    },
-                    get strengthText() {
-                        return ['Sangat Lemah', 'Lemah', 'Sedang', 'Kuat', 'Sangat Kuat'][this.strength];
-                    },
-                    get strengthColor() {
-                        return ['bg-border', 'bg-rose-500', 'bg-amber-500', 'bg-emerald-500', 'bg-brand'][this.strength];
-                    }
-                }">
+                        password: '',
+                        get strength() {
+                            if (!this.password) return 0;
+                            let s = 0;
+                            if (this.password.length > 7) s++;
+                            if (/[A-Z]/.test(this.password)) s++;
+                            if (/[0-9]/.test(this.password)) s++;
+                            if (/[^A-Za-z0-9]/.test(this.password)) s++;
+                            return s;
+                        },
+                        get strengthText() {
+                            return ['Sangat Lemah', 'Lemah', 'Sedang', 'Kuat', 'Sangat Kuat'][this.strength];
+                        },
+                        get strengthColor() {
+                            return ['bg-border', 'bg-rose-500', 'bg-amber-500', 'bg-emerald-500', 'bg-brand'][this.strength];
+                        }
+                    }">
                 <div class="text-[15px] font-bold mb-1">Keamanan Akun</div>
                 <p class="text-[13px] text-muted mb-5">Perbarui kata sandi Anda secara berkala.</p>
 
@@ -200,9 +200,7 @@
             <!-- Zona Berbahaya -->
             <div class="card p-[22px] border-dashed border-[#fecaca] bg-transparent" x-data="{ showDeleteForm: false }">
                 <div class="flex items-center gap-2 mb-1">
-                    <iconify-icon icon="solar:shield-warning-bold-duotone" width="22" height="22"
-                        class="text-[#dc2626]"></iconify-icon>
-                    <div class="text-[15px] font-extrabold text-[#dc2626]">Zona Berbahaya</div>
+                    <div class="text-[15px] font-bold text-[#dc2626]">Zona Berbahaya</div>
                 </div>
                 <p class="text-[13px] text-[#991b1b] mb-[18px] opacity-80">Tindakan yang tidak dapat
                     dibatalkan, harap berhati-hati.</p>
@@ -228,7 +226,7 @@
                         <div class="mb-4">
                             <label class="text-[12px] font-bold text-red-900 block mb-1.5">Konfirmasi Password</label>
                             <input type="password" name="password" placeholder="Masukkan password Anda"
-                                class="form-input border-red-200 focus:border-red-500 focus:ring-red-500/10 bg-white"
+                                class="form-input-danger"
                                 required>
                             @error('password', 'userDeletion')
                                 <p class="text-red-600 text-[11px] mt-1">{{ $message }}</p>
@@ -241,7 +239,7 @@
                                 melanjutkan
                             </label>
                             <input type="text" name="confirmation" placeholder="Tulis KONFIRMASI di sini"
-                                class="form-input border-red-200 focus:border-red-500 focus:ring-red-500/10 bg-white"
+                                class="form-input-danger"
                                 required>
                         </div>
 
