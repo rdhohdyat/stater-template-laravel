@@ -35,7 +35,8 @@
           class="text-brand"></iconify-icon>
       </div>
       <div class="min-w-0">
-        <div class="text-[22px] font-extrabold text-text leading-tight">24,521</div>
+        <div class="text-[22px] font-extrabold text-text leading-tight">20503
+        </div>
         <div class="text-[13px] text-muted font-medium">Total Pengguna</div>
       </div>
     </div>

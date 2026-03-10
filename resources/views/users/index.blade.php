@@ -86,17 +86,24 @@
         <div class="p-[16px_20px] border-b border-border bg-surface">
             <form action="{{ route('users.index') }}" method="GET"
                 class="flex justify-between items-center flex-wrap gap-4" id="filterForm">
-                
-                <div class="relative min-w-[180px] w-full max-w-[320px] flex-1">
-                    <iconify-icon icon="solar:magnifer-linear" width="18" height="18" class="i-left text-muted-light"></iconify-icon>
-                    <input type="text" name="search" value="{{ request('search') }}" class="form-input pl-10! bg-bg border-border"
-                        placeholder="Cari nama atau email..." oninput="this.form.submit()" />
+                <div class="flex items-center gap-3">
+                    <div class="relative w-full sm:w-[280px]">
+                        <iconify-icon icon="solar:magnifer-linear" width="18" height="18" class="i-left text-muted-light"></iconify-icon>
+                        <input type="text" name="search" value="{{ request('search') }}" class="form-input pl-10! bg-surface border-border shadow-sm rounded-xl text-[13px]"
+                            placeholder="Cari nama atau email..." oninput="debounceSubmit(this.form)" />
+                    </div>
+    
+                     @if(request('search'))
+                        <a href="{{ route('users.index') }}" class="btn btn-secondary p-2.5 rounded-xl shadow-sm">
+                            <iconify-icon icon="solar:refresh-linear" width="18" height="18"></iconify-icon>
+                        </a>
+                    @endif
                 </div>
                 
                 <div class="flex flex-wrap gap-3 items-center">
                     <div class="relative min-w-[130px]">
                         <iconify-icon icon="solar:filter-linear" width="18" height="18" class="i-left text-muted-light"></iconify-icon>
-                        <select name="role" class="form-input pl-10! cursor-pointer bg-bg border-border" onchange="this.form.submit()">
+                        <select name="role" class="form-input pl-10! cursor-pointer bg-surface border-border shadow-sm rounded-xl text-[13px]" onchange="this.form.submit()">
                             <option value="">Semua Peran</option>
                             <option value="admin" {{ request('role') == 'admin' ? 'selected' : '' }}>Admin</option>
                             <option value="user" {{ request('role') == 'user' ? 'selected' : '' }}>User</option>
@@ -104,7 +111,7 @@
                     </div>
                     <div class="relative min-w-[130px]">
                         <iconify-icon icon="solar:info-circle-linear" width="18" height="18" class="i-left text-muted-light"></iconify-icon>
-                        <select name="status" class="form-input pl-10! cursor-pointer bg-bg border-border" onchange="this.form.submit()">
+                        <select name="status" class="form-input pl-10! cursor-pointer bg-surface border-border shadow-sm rounded-xl text-[13px]" onchange="this.form.submit()">
                             <option value="">Semua Status</option>
                             <option value="active" {{ request('status') == 'active' ? 'selected' : '' }}>Aktif</option>
                             <option value="inactive" {{ request('status') == 'inactive' ? 'selected' : '' }}>Tidak Aktif</option>
@@ -187,9 +194,14 @@
                         </tr>
                     @empty
                         <tr>
-                            <td colspan="5" class="p-[40px_20px] text-center text-muted text-[14px]">Tidak
-                                ada
-                                pengguna ditemukan.</td>
+                            <td colspan="5">
+                                <div class="py-20 text-center">
+                                    <div class="w-16 h-16 bg-bg rounded-2xl flex items-center justify-center mx-auto mb-4 border border-border border-dashed">
+                                        <iconify-icon icon="solar:users-group-rounded-bold-duotone" width="32" height="32" class="text-border"></iconify-icon>
+                                    </div>
+                                    <p class="text-muted text-[13px] font-medium">Tidak ada pengguna ditemukan.</p>
+                                </div>
+                            </td>
                         </tr>
                     @endforelse
                 </tbody>

@@ -81,7 +81,7 @@
                                     };
                                 @endphp
                                 <div @click="getLogDetail({{ $log->id }})" 
-                                     class="card p-4 flex items-center gap-4 cursor-pointer hover:border-brand/40 hover:shadow-sm transition-all duration-200 group">
+                                     class="card p-4 flex items-center gap-4 cursor-pointer transition-all duration-200 group">
                                     <div class="w-11 h-11 rounded-2xl {{ $cfg['bg'] }} {{ $cfg['color'] }} flex items-center justify-center shrink-0 border border-black/5">
                                         <iconify-icon icon="{{ $cfg['icon'] }}" width="22" height="22"></iconify-icon>
                                     </div>

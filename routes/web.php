@@ -25,19 +25,7 @@ Route::post('/logout', [AuthController::class, 'logout'])->name('logout')->middl
 
 // Protected Routes (Auth required)
 Route::middleware('auth')->group(function () {
-    Route::get(
-        '/dashboard',
-        function () {
-            $user = auth()->user();
-            if ($user->role === 'admin') {
-                $recentActivities = \Spatie\Activitylog\Models\Activity::with('causer')->latest()->take(5)->get();
-                return view('dashboard', compact('recentActivities'));
-            } else {
-                $myActivities = \Spatie\Activitylog\Models\Activity::causedBy($user)->latest()->take(5)->get();
-                return view('dashboard-user', compact('myActivities'));
-            }
-        }
-    )->name('dashboard');
+    Route::get('/dashboard', [\App\Http\Controllers\DashboardController::class, 'index'])->name('dashboard');
     Route::get('/settings', [\App\Http\Controllers\ProfileController::class, 'index'])->name('settings');
     Route::put('/settings', [\App\Http\Controllers\ProfileController::class, 'update'])->name('profile.update');
     Route::put('/settings/password', [\App\Http\Controllers\ProfileController::class, 'updatePassword'])->name('profile.password');

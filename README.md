@@ -2,4 +2,4 @@
 
 php artisan optimize:clear
 composer dump-autoload
-rm storage/logs/*.log
+rm storage/logs/*.log   
